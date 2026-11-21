@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="470" viewBox="0 0 920 470" fill="none">
+  <rect width="920" height="470" rx="16" fill="#0B0B0E"/>
+  <rect x="16" y="16" width="888" height="438" rx="12" fill="#141418" stroke="#26262E" stroke-width="1.5"/>
+
+  <!-- Top Window Bar -->
+  <line x1="16" y1="58" x2="904" y2="58" stroke="#26262E" stroke-width="1"/>
+  <circle cx="40" cy="37" r="5" fill="#26262E"/>
+  <circle cx="58" cy="37" r="5" fill="#26262E"/>
+  <circle cx="76" cy="37" r="5" fill="#26262E"/>
+  <text x="102" y="42" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" font-weight="700">browser-encrypted-vault // zero-dep webcrypto + indexeddb</text>
+
+  <rect x="748" y="25" width="136" height="24" rx="6" fill="#FFFFFF"/>
+  <text x="816" y="41" text-anchor="middle" fill="#000000" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700">0 RUNTIME DEPS</text>
+
+  <!-- Architecture Pipeline Cards -->
+  <rect x="38" y="82" width="268" height="154" rx="10" fill="#101014" stroke="#26262E" stroke-width="1.2"/>
+  <rect x="54" y="98" width="92" height="22" rx="5" fill="#141418" stroke="#26262E"/>
+  <text x="100" y="113" text-anchor="middle" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="600">STEP 1: KDF</text>
+  <text x="54" y="144" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="700">PBKDF2-HMAC-SHA256</text>
+  <text x="54" y="168" fill="#A1A1AA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">100,000 iterations</text>
+  <text x="54" y="188" fill="#A1A1AA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">16-byte CSPRNG salt</text>
+  <text x="54" y="208" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">extractable: false</text>
+
+  <rect x="326" y="82" width="268" height="154" rx="10" fill="#101014" stroke="#26262E" stroke-width="1.2"/>
+  <rect x="342" y="98" width="110" height="22" rx="5" fill="#141418" stroke="#26262E"/>
+  <text x="397" y="113" text-anchor="middle" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="600">STEP 2: CIPHER</text>
+  <text x="342" y="144" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="700">AES-GCM-256 + Canary</text>
+  <text x="342" y="168" fill="#A1A1AA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">12-byte fresh IV per write</text>
+  <text x="342" y="188" fill="#A1A1AA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">IndexedDB ciphertext blob</text>
+  <text x="342" y="208" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">Fast canary password check</text>
+
+  <rect x="614" y="82" width="268" height="154" rx="10" fill="#101014" stroke="#26262E" stroke-width="1.2"/>
+  <rect x="630" y="98" width="118" height="22" rx="5" fill="#141418" stroke="#26262E"/>
+  <text x="689" y="113" text-anchor="middle" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="600">STEP 3: RUNTIME</text>
+  <text x="630" y="144" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="700">Closure RAM + Scrubber</text>
+  <text x="630" y="168" fill="#A1A1AA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">Lexical Map (0 public props)</text>
+  <text x="630" y="188" fill="#A1A1AA" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">30m inactivity auto-wipe</text>
+  <text x="630" y="208" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">64-hex &amp; BIP-39 log redactor</text>
+
+  <!-- Terminal Output Box -->
+  <rect x="38" y="256" width="844" height="176" rx="10" fill="#0D0D10" stroke="#26262E" stroke-width="1.2"/>
+  <text x="58" y="284" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700">$ npm test &amp;&amp; npm run typecheck</text>
+  <text x="58" y="310" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">[PASS] tests/encryptedVault.test.ts    (3 tests)  AES-GCM-256 + 100k PBKDF2 + tamper check</text>
+  <text x="58" y="332" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">[PASS] tests/safeLogger.test.ts        (4 tests)  64-hex pk + 12/24w BIP-39 scrubber</text>
+  <text x="58" y="354" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">[PASS] tests/vaultManager.test.ts      (3 tests)  IndexedDB canary + auto-lock RAM wipe</text>
+  <text x="58" y="376" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5">[PASS] tests/keyringAndSession.test.ts (3 tests)  HD keyring + controller session guard</text>
+
+  <rect x="58" y="394" width="232" height="24" rx="5" fill="#141418" stroke="#26262E"/>
+  <text x="174" y="410" text-anchor="middle" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700">Test Files: 4 passed (13 tests)</text>
+
+  <rect x="302" y="394" width="276" height="24" rx="5" fill="#141418" stroke="#26262E"/>
+  <text x="440" y="410" text-anchor="middle" fill="#E4E4E7" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">redact("0x9f..a2") -&gt; [REDACTED_PRIVATE_KEY]</text>
+</svg>
